@@ -1,5 +1,5 @@
 [[_TOC_]]
-# EIA External Secrets Operator(ESO)
+# EIHAVING App Integration with External Secrets Operator(ESO)
 
 ## Overview
 
