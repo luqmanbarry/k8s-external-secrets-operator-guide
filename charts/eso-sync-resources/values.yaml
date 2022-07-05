@@ -1,0 +1,55 @@
+
+enabled: true
+
+operatorConfig:
+  image: 
+    repository: ghcr.io/external-secrets/external-secrets
+    pullPolicy: IfNotPresent
+    tag: ''
+
+provider:
+  aws:
+    region: us-east-2
+    accessKey: VRTJQVJOQTVFQkQ3WEZMM1RTNDY=
+    secretAccessKey: 1232xOGdsblJ3UWtkSElZeGhFYUQ5d2xnNDhnVktRNWM1dmRDRXFQWQ==
+    externalSecret:
+      apps:
+      - name: eia-payment-service
+        enabled: true
+        project: eihaving
+        refreshInterval: 1h
+        # Possible Values: "Opaque", "kubernetes.io/dockerconfigjson", "kubernetes.io/tls", "kubernetes.io/ssh-auth"
+        secretType: Opaque
+        localSecretName: eia-payment-service-standalone-openshift-secret
+        remoteSecretBucket: "non-prod/eihaving/eia-payment-service/secrets"
+        keySets:
+        - remoteKey: "standalone-openshift.xml"
+          # Replace dots(.) by underscores; use snake case(substr1_substr2_substr3)
+          templateKey: "standalone_openshift_xml"
+      - name: eia-stock-management-service
+        enabled: true
+        project: eihaving
+        refreshInterval: 1h
+        # Possible Values: "Opaque", "kubernetes.io/dockerconfigjson", "kubernetes.io/tls", "kubernetes.io/ssh-auth"
+        secretType: Opaque
+        localSecretName: eia-stock-management-service-tcadapter-secret
+        remoteSecretBucket: "non-prod/eihaving/eia-stock-management-service/secrets"
+        keySets:
+        - remoteKey: "tcadapter.properties"
+          # Replace dots(.) by underscores; use snake case(substr1_substr2_substr3)
+          templateKey: "tcadapter_peroperties"
+      - name: eia-shipping-service
+        enabled: true
+        project: eihaving
+        refreshInterval: 1h
+        # Possible Values: "Opaque", "kubernetes.io/dockerconfigjson", "kubernetes.io/tls", "kubernetes.io/ssh-auth"
+        secretType: Opaque
+        localSecretName: eia-shipping-service-standalone-openshift-secret
+        remoteSecretBucket: "non-prod/eihaving/eia-shipping-service/secrets"
+        keySets:
+        - remoteKey: "standalone-openshift.xml"
+          # Replace [.-] by underscores; use snake case(substr1_substr2_substr3)
+          templateKey: "standalone_openshift_xml"
+        
+        
+

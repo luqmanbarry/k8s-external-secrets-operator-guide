@@ -1,0 +1,17 @@
+
+enabled: true
+
+operator:
+  installPlanApproval: Automatic
+  version: external-secrets-operator.v0.5.7
+  
+catalogSource:
+  enabled: true
+  sourceType: grpc
+  image: ghcr.io/external-secrets/external-secrets-helm-operator
+  publisher: external-secrets Community
+  displayName: Community Operators
+  updateInterval: 10m0s
+  name: external-secrets-operator
+  spec:
+  priority: -400

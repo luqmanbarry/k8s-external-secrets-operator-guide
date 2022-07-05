@@ -1,0 +1,7 @@
+The following helm charts will be deployed:
+
+  eso-deployment-resources: Helm chart for deploying the Operator.
+
+  eso-sync-resources: Helm chart for deploying the secret synchronization resources.
+
+Look at each specific chart for more details.

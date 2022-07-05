@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: eso-{{ include "eso-deployment-resources.namespace" . }}
+  namespace: {{ include "eso-deployment-resources.namespace" . }}
+  labels:
+    {{- include "eso-deployment-resources.labels" . | nindent 4 }}
+spec:
+  targetNamespaces:
+    - {{ include "eso-deployment-resources.namespace" . }}
