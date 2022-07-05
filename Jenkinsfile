@@ -6,9 +6,9 @@ pipeline {
     }
 
     parameters {
-        string(name: 'gitBranch', defaultValue: 'gpta-rosa', description: 'The Git branch to checkout from.', trim: true)
-        string(name: 'ocTokenCredentialsId', defaultValue: 'rosa-tst-jenkins-eia', description: 'Token used by the OpenShift CLI to authenticate.', trim: true)
-        string(name: 'awsCredentialsId', defaultValue: 'rosa-mvp-aws-eia', description: 'AWS ACCESS_KEY and SECRET_ACCESS_KEY details.', trim: true)
+        string(name: 'gitBranch', defaultValue: 'develop', description: 'The Git branch to checkout from.', trim: true)
+        string(name: 'ocTokenCredentialsId', defaultValue: 'ocp-tst-jenkins-eia', description: 'Token used by the OpenShift CLI to authenticate.', trim: true)
+        string(name: 'awsCredentialsId', defaultValue: 'ocp-mvp-aws-eia', description: 'AWS ACCESS_KEY and SECRET_ACCESS_KEY details.', trim: true)
         string(name: 'targetNamespace', defaultValue: 'eia-dev-02', description: 'The target namespace to deploy the monitoring resources.', trim: true)
         string(name: 'operatorChartName', defaultValue: 'eso-deployment-resources', description: 'The chart name of the Operator.', trim: true)
         booleanParam(name: 'esoOperatorInstalled', defaultValue: false, description: 'Whether ESO Operator is available or not.')
